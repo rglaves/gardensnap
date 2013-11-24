@@ -37,6 +37,7 @@ Gardensnap::Application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
   # Send email in development mode.
-  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { :host => 'localhost' }
+  config.action_mailer.perform_deliveries = false
 
 end

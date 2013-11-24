@@ -1,0 +1,12 @@
+<div class="container">
+	<% (0 .. (@posts.count / @postsPerRow)).each do |row| %>
+	<div class="row">
+		<% (0 .. @postsPerRow).each do |col| %>
+		<div class="col-xs-<%= @colWidth %>">
+			<% post = @posts[row*@postsPerRow + col] %>
+			<%= render partial: 'summary', locals: {post: post} if post %>
+		</div>
+		<% end %>
+	</div>
+	<% end %>
+</div>

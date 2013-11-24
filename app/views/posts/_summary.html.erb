@@ -1,0 +1,20 @@
+<div class="post-summary">
+	<%= link_to image_tag( post.img), user_post_path(post.user, post) %>
+	<div class="meta row">
+		<div class="col-xs-4">
+			<%= link_to pluralize(post.comments.count, "comment"), user_post_path(post.user, post) %>
+		</div>
+		<div class="col-xs-4 tags text-center">
+			<em>
+			<% post.tags.each do |tag| %>
+				<%= link_to tag.name, user_posts_path(post.user, tag: tag.name) %>
+			<% end %>
+			</em>
+		</div>
+		<div class="col-xs-4 text-right">
+			<% if post.question? %>
+			<div class="question"><%= link_to "?", user_post_path(post.user, post) %></div>
+			<% end %>
+		</div>
+	</div>
+</div>

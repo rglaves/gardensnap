@@ -1,4 +1,16 @@
-<h3>Home</h3>
-<% @users.each do |user| %>
-  <p>User: <%=link_to user.name, user %></p>
-<% end %>
+<div class="container">
+	<% (0..5).each do |row| %>
+	<div class="row margin-bottom-30">
+		<% (0..5).each do |col| %>
+		<div class="col-xs-2">
+			<div class="post-summary">
+				<%= placeholdit("150/00aa00/fff&text=amazing+plant+#{row*6+col}", class: 'img') %>
+				<div class="user">
+					<%= placeholdit("40/&text=avatar#{row*6+col}")%>
+				</div>
+			</div>
+		</div>
+		<% end %>
+	</div>
+	<% end %>
+</div>
